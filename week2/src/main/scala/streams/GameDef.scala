@@ -133,17 +133,19 @@ trait GameDef {
      * the current block, together with the corresponding move.
      */
     def neighbors: List[(Block, Move)] = List(
-      Tuple2(this.left, Left),
-      Tuple2(this.right, Right),
-      Tuple2(this.up, Up),
-      Tuple2(this.down, Down)
+
+      (this.left, Left),
+      (this.right, Right),
+      (this.up, Up),
+      (this.down, Down)
     )
 
     /**
      * Returns the list of positions reachable from the current block
      * which are inside the terrain.
      */
-    def legalNeighbors: List[(Block, Move)] = neighbors.filter(_ => isLegal) //TODO
+
+    def legalNeighbors: List[(Block, Move)] = neighbors.filter(_._1.isLegal)
 
     /**
      * Returns `true` if the block is standing.

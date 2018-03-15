@@ -80,7 +80,7 @@ trait Solver extends GameDef {
     else {
       val more = for {
         path <- initial
-        next <- newNeighborsOnly()
+        next <- newNeighborsOnly() //TODO
       }
     }
   }
